@@ -1,8 +1,13 @@
 import React from 'react';
-import Main from "./src/screens/Main";
+import { View, Text } from 'react-native';
+import Main from './src/screens';
 
-export default function App() {
+interface IApp {}
+
+const App: React.FC<IApp> = ({}) => {
   return (
     <Main/>
-  );
+  )
 }
+
+export default App;
