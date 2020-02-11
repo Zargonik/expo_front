@@ -6,6 +6,14 @@ interface IScreenWrapper {
     children: any;
 }
 
-export const ScreenWrapper: React.FC<IScreenWrapper> = ({children}) => <View
-style={[backgrounds.mainTheme, layout]}
->{children}</View>
+const ScreenWrapper: React.FC<IScreenWrapper> = ({children}) => {
+    return (
+        <View
+        style={[backgrounds.mainTheme, layout]}
+        >
+            {children}
+        </View>
+    )
+}
+
+export default ScreenWrapper
