@@ -7,9 +7,11 @@ import {
 
 import {getStyles} from './styles';
 
-import DismissKeyboard from '../../components/DismissKeyboard';
+import DismissKeyboard from '../../components/Dismiss-keyboard';
 import LoginLogo from './components/Login-logo';
 import Input from '../../components/Fields/Input';
+import WideButton from '../../components/Buttons/Wide-button';
+import HeaderButtons from '../../components/Header-buttons';
 
 const LoginPageBgc = require('../../images/Login-bgc.png')
 
@@ -19,18 +21,36 @@ const Login: React.FC<ILogin> = ({}) => {
 
     const styles = getStyles()
 
-    const [isLogin, setIsLogin] = useState(true)
+    const [isLogin, setIsLogin] = useState(false);
+
+    const renderHeader = () => {
+        return (
+            <HeaderButtons
+                titleLeftButton="Cancel"
+                titleRightButton="Done"
+                onPressLeft={() => setIsLogin(false)}
+                onPressRight={() => console.log("Done")}
+            />
+        )
+    }
 
     const renderLoginForm = () => {
         return (
-            <View style={styles.LoginForm}>
+            <View>
                 <Input
                     placeholder="Enter login"
+                    autoFocus={true}
+                    returnKeyType={"next"}
                 />
                 <Input
                     placeholder="Enter password"
                     secureTextEntry
                     maxLength={16}
+                    returnKeyType={"done"}
+                />
+                <WideButton
+                    onPress={() => console.log("submit")}
+                    title="Submit"
                 />
             </View>
         )
@@ -39,7 +59,14 @@ const Login: React.FC<ILogin> = ({}) => {
     const renderStartBtn = () => {
         return (
             <View>
-
+                <WideButton
+                    onPress={() => setIsLogin(true)}
+                    title="Login"
+                />
+                <WideButton
+                    onPress={() => console.log("submit")}
+                    title="Registration"
+                />
             </View>
         )
     }
@@ -51,13 +78,10 @@ const Login: React.FC<ILogin> = ({}) => {
                 source={LoginPageBgc}
             >
                 <LoginLogo/>
-                <KeyboardAvoidingView 
-                    behavior="position"
-                >
-                    <View
-                        style={styles.container}
-                    >
-                        {isLogin ? renderLoginForm(): renderStartBtn()}
+                {isLogin ? renderHeader() : null}
+                <KeyboardAvoidingView behavior="position">
+                    <View style={styles.container}>
+                        {isLogin ? renderLoginForm() : renderStartBtn()}
                     </View>
                 </KeyboardAvoidingView>
            </ImageBackground>

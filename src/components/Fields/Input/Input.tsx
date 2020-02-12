@@ -1,14 +1,16 @@
 import  React from 'react';
-import { View, TextInput, Text } from 'react-native';
+import { View, TextInput, Text, ReturnKeyTypeOptions, TextInputProps } from 'react-native';
 import { getStyles } from './styles';
 
-interface IInput {
-    type? : string,
-    placeholder?: string,
-    secureTextEntry? : boolean,
-    maxLength? : number,
+interface IInput extends TextInputProps {
+    // type? : string,
+    // placeholder?: string,
+    // secureTextEntry? : boolean,
+    // maxLength? : number,
     validationMessage? : string,
     validationColor? : string,
+    // autoFocus? : boolean,
+    // returnKeyType? : ReturnKeyTypeOptions,
 };
 
 const Input: React.FC<IInput> = ({
@@ -16,7 +18,9 @@ const Input: React.FC<IInput> = ({
     secureTextEntry,
     maxLength,
     validationMessage,
-    validationColor
+    validationColor,
+    autoFocus,
+    returnKeyType
 }) => {
 
     const styles = getStyles()
@@ -29,6 +33,8 @@ const Input: React.FC<IInput> = ({
                 placeholder={placeholder && placeholder}
                 placeholderTextColor={"gray"}
                 maxLength={maxLength}
+                autoFocus={autoFocus ? autoFocus : false}
+                returnKeyType={returnKeyType}
             />
             {validationMessage && 
             <Text style={{color: validationColor}}>

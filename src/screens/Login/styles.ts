@@ -10,7 +10,7 @@ export const getStyles = () => StyleSheet.create({
         justifyContent: "flex-end",
         paddingBottom: 30,
     },
-    LoginForm: {
+    startBtnContainer: {
       
     }
 });
