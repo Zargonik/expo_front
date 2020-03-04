@@ -15,9 +15,11 @@ import HeaderButtons from '../../components/Header-buttons';
 
 const LoginPageBgc = require('../../images/Login-bgc.png')
 
-interface ILogin {};
+interface ILogin {
+    navigation
+};
 
-const Login: React.FC<ILogin> = ({}) => {
+const Login: React.FC<ILogin> = ({navigation}) => {
 
     const styles = getStyles()
 
@@ -64,7 +66,7 @@ const Login: React.FC<ILogin> = ({}) => {
                     title="Login"
                 />
                 <WideButton
-                    onPress={() => console.log("submit")}
+                    onPress={() => navigation.navigate("Registration")}
                     title="Registration"
                 />
             </View>

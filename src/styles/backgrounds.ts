@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native';
 
-export const backgrounds = StyleSheet.create<any>({
-    mainTheme: "#2c3e50",
-})
+export const backgrounds = {
+    mainTheme: "#2d3436",
+    darkTheme: "#192a56",
+    tomato: "#ff6348",
+    light: "#dcdde1"
+}

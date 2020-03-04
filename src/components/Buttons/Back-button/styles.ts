@@ -2,10 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export const getStyles = () => StyleSheet.create({
   container: {
-    paddingLeft: 20,
-    paddingRight: 20,
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  touchElement: {
-    width: 80,
-  }
 });

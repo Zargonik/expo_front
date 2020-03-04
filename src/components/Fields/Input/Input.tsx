@@ -3,14 +3,8 @@ import { View, TextInput, Text, ReturnKeyTypeOptions, TextInputProps } from 'rea
 import { getStyles } from './styles';
 
 interface IInput extends TextInputProps {
-    // type? : string,
-    // placeholder?: string,
-    // secureTextEntry? : boolean,
-    // maxLength? : number,
     validationMessage? : string,
     validationColor? : string,
-    // autoFocus? : boolean,
-    // returnKeyType? : ReturnKeyTypeOptions,
 };
 
 const Input: React.FC<IInput> = ({
@@ -20,7 +14,10 @@ const Input: React.FC<IInput> = ({
     validationMessage,
     validationColor,
     autoFocus,
-    returnKeyType
+    returnKeyType,
+    keyboardType,
+    value,
+    onChangeText
 }) => {
 
     const styles = getStyles()
@@ -35,6 +32,9 @@ const Input: React.FC<IInput> = ({
                 maxLength={maxLength}
                 autoFocus={autoFocus ? autoFocus : false}
                 returnKeyType={returnKeyType}
+                keyboardType={keyboardType}
+                value={value}
+                onChangeText={onChangeText}
             />
             {validationMessage && 
             <Text style={{color: validationColor}}>

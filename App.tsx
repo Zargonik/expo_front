@@ -1,10 +1,15 @@
 import React from 'react';
-import Login from './src/screens/Login';
-
+import { Button } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-interface IApp {}
+import Login from './src/screens/Login';
+// import RegistrationType from './src/screens/Registration-type';
+
+import { RegistrationRouts } from './src/routes';
+
+interface IApp {
+}
 
 const App: React.FC<IApp> = ({}) => {
 
@@ -13,11 +18,13 @@ const App: React.FC<IApp> = ({}) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        // initialRouteName="Login"
         screenOptions={{
-            headerShown: false
+          headerShown: false
         }}
       >
-        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name="Registration" component={RegistrationRouts}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
